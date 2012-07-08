@@ -1,2 +1,4 @@
 The original countdown.sh script was found from below link:
 http://linuxconfig.org/time-countdown-bash-script-example
+
+Start from the second commit, Tom Xue made some modification: a progress bar was added.

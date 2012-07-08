@@ -29,7 +29,14 @@ if [ "$1" = "-m" ] ; then
 	fi 
 fi 
  
- 
+_R=0
+_C=7
+tmp=0
+percent=0
+total_time=0
+col=`tput cols`
+col=$[ $col -5 ]
+
 while [ $sec_rem -gt 0 ]; do 
 	clear 
 	date 
@@ -50,5 +57,26 @@ while [ $sec_rem -gt 0 ]; do
 	echo "Hours:   " $hours 
 	echo "Days:    " $days 
 	echo "Weeks:   " $weeks 
-	sleep 1 
-done 
+
+	echo "["
+
+	progress=$[$progress + 1]
+	if [ $total_time -lt 1 ] ; then
+		total_time=$[$hours * 3600 + $minutes * 60 + $seconds]
+	fi
+	
+	tput cup $_C $_R
+	printf "=>"
+	_C=7
+	tput cup 7 $col
+
+	tmp=$percent
+	percent=$[$progress * 100 / $total_time]
+	printf "]%d%%" $percent
+	change=$[$percent - $tmp]
+
+	_R=$[ $col * $percent / 100 ]
+
+	sleep 1
+done
+printf "\n"
