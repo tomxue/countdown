@@ -58,15 +58,14 @@ while [ $sec_rem -gt 0 ]; do
 	echo "Days:    " $days 
 	echo "Weeks:   " $weeks 
 
-	echo "["
+	echo -n "["
 
 	progress=$[$progress + 1]
 	if [ $total_time -lt 1 ] ; then
 		total_time=$[$hours * 3600 + $minutes * 60 + $seconds]
 	fi
 	
-	tput cup $_C $_R
-	printf "=>"
+	printf -v f "%$(echo $_R)s>" ; printf "%s\n" "${f// /=}"
 	_C=7
 	tput cup 7 $col
 

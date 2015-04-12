@@ -2,3 +2,17 @@ The original countdown.sh script was found from below link:
 http://linuxconfig.org/time-countdown-bash-script-example
 
 Start from the second commit, Tom Xue made some modification: a progress bar was added.
+
+Third commit, Lubos Rendek modifactions: improved full progress bar.
+
+
+Fri Apr 10 08:47:46 AEST 2015
+----------------------------
+Seconds:  13
+Minutes:  2
+Hours:    0
+Days:     0
+Weeks:    0
+[========>                                                                 ]12%
+
+Page on http://linuxconfig.org/ updated to reflect the changes and link back to git repository.
