@@ -36,9 +36,9 @@ percent=0
 total_time=0
 col=`tput cols`
 col=$[ $col -5 ]
-
+clear
 while [ $sec_rem -gt 0 ]; do 
-	clear 
+	tput cup 0 0
 	date 
 	let sec_rem=$sec_rem-1 
 	interval=$sec_rem 
